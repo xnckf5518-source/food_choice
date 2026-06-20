@@ -1,0 +1,241 @@
+.decision {
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(250, 252, 252, 0.92)),
+    linear-gradient(135deg, rgba(15, 123, 120, 0.08), transparent 42%),
+    linear-gradient(315deg, rgba(239, 106, 79, 0.1), transparent 42%);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.06);
+}
+
+.ticker {
+  position: relative;
+  width: calc(100% + 32px);
+  margin: -16px -16px 4px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(17, 24, 39, 0.06);
+  background: rgba(17, 24, 39, 0.94);
+}
+
+.ticker::before,
+.ticker::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 70px;
+  content: "";
+  pointer-events: none;
+}
+
+.ticker::before {
+  left: 0;
+  background: linear-gradient(90deg, #111827, transparent);
+}
+
+.ticker::after {
+  right: 0;
+  background: linear-gradient(270deg, #111827, transparent);
+}
+
+.ticker-track {
+  width: max-content;
+  display: flex;
+  gap: 8px;
+  padding: 8px 0;
+  animation: tickerMove 22s linear infinite;
+}
+
+.ticker-track.fast {
+  animation-duration: 4s;
+}
+
+.ticker-track span {
+  min-width: max-content;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #f8fafc;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.stage {
+  display: grid;
+  place-items: center;
+  min-height: 390px;
+  text-align: center;
+}
+
+.plate {
+  width: min(64vw, 295px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 6px;
+  border: 17px solid #ffffff;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, #ffffff 0 48%, #e9f4f3 49% 52%, #ffffff 53%);
+  box-shadow:
+    inset 0 0 0 1px rgba(15, 123, 120, 0.15),
+    0 20px 46px rgba(15, 23, 42, 0.11);
+  transition: transform 0.2s ease;
+}
+
+.plate.active {
+  animation: pulse 0.28s ease infinite alternate;
+}
+
+.plate span {
+  color: #0f7b78;
+  font-size: 0.76rem;
+  font-weight: 900;
+}
+
+.plate strong {
+  max-width: 215px;
+  color: #111827;
+  font-size: clamp(1.5rem, 3.6vw, 2.4rem);
+  line-height: 1.08;
+  word-break: keep-all;
+}
+
+.result {
+  width: min(100%, 500px);
+  margin-top: 12px;
+}
+
+.result-score {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px 12px;
+  align-items: center;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.result-score span {
+  color: #52606b;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.result-score strong {
+  color: #0f7b78;
+  font-size: 0.98rem;
+}
+
+.result-score div {
+  grid-column: 1 / -1;
+  height: 6px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e6ecee;
+}
+
+.result-score i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #0f7b78, #ef6a4f);
+  transition: width 0.3s ease;
+}
+
+.result p,
+.empty-text {
+  line-height: 1.55;
+}
+
+.result-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.result-tags span {
+  min-height: 32px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: #f1f5f6;
+  color: #52606b;
+  font-weight: 700;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 150px;
+  gap: 10px;
+}
+
+.actions button {
+  min-height: 46px;
+  border-radius: 8px;
+  font-weight: 800;
+}
+
+.actions button:not(.primary) {
+  background: #edf1f3;
+  color: #35404a;
+}
+
+.primary {
+  background: #111827;
+  color: #fff;
+  box-shadow: 0 14px 26px rgba(17, 24, 39, 0.18);
+}
+
+@keyframes pulse {
+  from {
+    transform: rotate(-1.5deg) scale(0.99);
+  }
+  to {
+    transform: rotate(1.5deg) scale(1.02);
+  }
+}
+
+@keyframes tickerMove {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 1020px) {
+  .decision {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+}
+
+@media (max-width: 760px) {
+  .decision {
+    min-height: 450px;
+  }
+
+  .ticker {
+    width: calc(100% + 28px);
+    margin: -16px -14px 0;
+  }
+
+  .stage {
+    min-height: 355px;
+  }
+
+  .actions {
+    grid-template-columns: 1fr;
+  }
+
+  .plate {
+    border-width: 14px;
+  }
+}

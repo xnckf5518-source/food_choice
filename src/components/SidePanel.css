@@ -1,0 +1,77 @@
+.side {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+}
+
+.candidate-list,
+.history-list {
+  display: grid;
+  gap: 8px;
+}
+
+.candidate-list button,
+.history-list div {
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 9px 10px;
+  border-radius: 8px;
+  background: #f6f8f9;
+  color: #202a33;
+  text-align: left;
+  transition: background 0.16s ease, transform 0.16s ease;
+}
+
+.candidate-list button:hover {
+  background: #edf6f5;
+  transform: translateY(-1px);
+}
+
+.candidate-list span,
+.history-list span {
+  font-weight: 800;
+}
+
+.history-list div {
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.excluded-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.excluded-list button {
+  min-height: 34px;
+  padding: 0 10px;
+  border-radius: 8px;
+  background: #fff0ec;
+  color: #c9482e;
+  font-weight: 700;
+}
+
+@media (max-width: 1020px) {
+  .side {
+    grid-template-columns: 1fr 1fr;
+    grid-column: 1 / -1;
+  }
+
+  .side .panel:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 760px) {
+  .side {
+    grid-template-columns: 1fr;
+  }
+
+  .side .panel:last-child {
+    grid-column: auto;
+  }
+}
