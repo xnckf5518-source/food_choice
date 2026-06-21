@@ -10,6 +10,34 @@
   gap: 8px;
 }
 
+.candidate-count {
+  margin: -4px 0 10px;
+  color: #74808c;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.candidate-list {
+  max-height: 330px;
+  overflow-y: auto;
+  padding-right: 4px;
+  scrollbar-color: #b9c7c8 transparent;
+  scrollbar-width: thin;
+}
+
+.candidate-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.candidate-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.candidate-list::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: #b9c7c8;
+}
+
 .candidate-list button,
 .history-list div {
   min-height: 40px;
@@ -64,6 +92,10 @@
   .side .panel:last-child {
     grid-column: 1 / -1;
   }
+
+  .candidate-list {
+    max-height: 260px;
+  }
 }
 
 @media (max-width: 760px) {
@@ -73,5 +105,9 @@
 
   .side .panel:last-child {
     grid-column: auto;
+  }
+
+  .candidate-list {
+    max-height: 300px;
   }
 }

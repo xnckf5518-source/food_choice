@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { DecisionPanel } from './components/DecisionPanel.jsx';
 import { FiltersPanel } from './components/FiltersPanel.jsx';
 import { Hero } from './components/Hero.jsx';
+import { InfoSections } from './components/InfoSections.jsx';
 import { SidePanel } from './components/SidePanel.jsx';
 import { menus } from './data/menus.js';
 import { readStorage } from './utils/storage.js';
@@ -149,6 +150,8 @@ function App() {
           onRemoveExcluded={(name) => setExcluded((items) => items.filter((item) => item !== name))}
         />
       </section>
+
+      <InfoSections />
     </main>
   );
 }

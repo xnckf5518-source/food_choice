@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://xnckf5518-source.github.io/food_choice/sitemap.xml

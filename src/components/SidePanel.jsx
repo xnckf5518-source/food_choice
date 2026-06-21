@@ -5,8 +5,9 @@ export function SidePanel({ candidates, excluded, history, onPick, onRemoveExclu
   return (
     <aside className="side">
       <Panel title="후보 메뉴">
+        <p className="candidate-count">{candidates.length}개 메뉴</p>
         <div className="candidate-list">
-          {candidates.slice(0, 8).map((menu) => (
+          {candidates.map((menu) => (
             <button key={menu.name} type="button" onClick={() => onPick(menu)}>
               <span>{menu.name}</span>
               <small>{menu.category}</small>
